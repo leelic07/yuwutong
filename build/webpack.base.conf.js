@@ -38,6 +38,18 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: 'less-loader'
+      },
+      {
+        test:/\.html$/,
+        loader:'html-loader'
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
