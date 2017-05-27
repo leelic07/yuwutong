@@ -3,8 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
 Vue.config.productionTip = false
+
+// axios.defaults.baseURL = 'http://10.10.10.2/var/run/mysqld/mysqld.sock';
+
+axios.defaults.baseURL = 'http://10.10.10.2/';
 
 /* eslint-disable no-new */
 new Vue({

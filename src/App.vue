@@ -4,10 +4,12 @@
     <!--<ToTal></ToTal>-->
     <Header></Header>
     <Aside></Aside>
-    <Content></Content>
+    <!--<Content></Content>-->
+    <router-view></router-view>
     <Footer></Footer>
     <SlideBar></SlideBar>
     <ControlSlideBar></ControlSlideBar>
+
   </div>
 </template>
 
