@@ -9,7 +9,6 @@
     <Footer></Footer>
     <SlideBar></SlideBar>
     <ControlSlideBar></ControlSlideBar>
-
   </div>
 </template>
 
