@@ -2,19 +2,19 @@
   <!-- Content Wrapper. Contains page content -->
   <div id="Content" class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header" v-if="isManage">
       <!--<h1>-->
       <!--Page Header-->
       <!--<small>Optional description</small>-->
       <!--</h1>-->
-      <ol class="breadcrumb">
+      <ol class="breadcrumb pull-left">
         <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
         <li class="active">商品管理</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" v-if="isManage">
 
       <!-- Your Page Content Here -->
       <!--<table class="table table-striped">-->
@@ -91,7 +91,9 @@
                     <td>X</td>
                     <td>X</td>
                     <td>X</td>
-                    <td>X</td>
+                    <td>
+                      <router-link to="/commodity_management/edit" @click="isManage()">编辑</router-link>
+                    </td>
                   </tr>
                 </tbody>
                 <tfoot>
@@ -112,9 +114,13 @@
         </div>
       </div>
     </section>
+
+    <!--点击编辑路由入口-->
+    <router-view></router-view>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
 </template>
 
 <script>
@@ -122,7 +128,37 @@
   export default {
     data() {
       return {
-        order:[]
+        order: [],
+        isManage: true,
+        toUrl: '',//到达路由
+        fromUrl: ''//进入路由
+      }
+    },
+    watch: {
+      $route(to, from) {//监听路由变化
+        this.toUrl = to.path;
+        this.fromUrl = from.path;
+      },
+      toUrl() {
+        const editUrl = '/commodity_management/edit';
+//        const index = editUrl.lastIndexOf('/');
+//        if (this.toUrl.substring(0, index) == "/crimsearch/edit") {//进入编辑页面
+//          this.isManage = false;//将管理页隐藏
+//        } else {
+//          this.isManage = true;
+//        }
+
+        if (this.toUrl == '/commodity_management/edit') {
+          this.isManage = false;
+        } else {
+          this.isManage = true;
+        }
+      },
+      fromUrl() {
+        const editUrl = '/commodity_management/edit';
+        if(this.fromUrl == '/commodity_management/edit'){
+
+        }
       }
     },
     methods: {
@@ -133,6 +169,10 @@
         }).catch(err => {
           console.log(err);
         });
+      },
+
+      isManage() {
+        this.commodityTableShow = !this.commodityTableShow;
       }
     },
     mounted() {
@@ -168,7 +208,7 @@
 <style type="text/less" lang="less" scoped>
   #Content {
     .breadcrumb {
-      margin-right: 85%;
+      /*margin-right: 85%;*/
       font-size: 16px;
       > li {
         &:first-child {
@@ -180,14 +220,13 @@
     }
 
     .box {
-      margin-top:35px;
+      margin-top: 35px;
       .dataTables_filter {
         label {
-          float:right;
-          margin-left:80%;
+          float: right;
+          margin-left: 80%;
         }
       }
     }
-
   }
 </style>
