@@ -17,7 +17,7 @@
 //import ToTal from './components/Total.vue'
 import Header from './components/Header/Header.vue'
 import Aside from './components/Aside/Aside.vue'
-import Content from './components/Content/Content.vue'
+import CommodityManagement from './components/Commodity/Commodity_Management.vue'
 import Footer from './components/Footer/Footer.vue'
 import SlideBar from './components/SlideBar/SlideBar.vue'
 import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
@@ -40,7 +40,7 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
             this.isNotLogin = false;
         }else {
             this.isNotLogin = true;
-        } 
+        }
       }
     },
     methods:{
@@ -57,7 +57,7 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
 //      ToTal
       Header,
       Aside,
-      Content,
+      CommodityManagement,
       Footer,
       SlideBar,
       ControlSlideBar
@@ -72,7 +72,7 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
   .skin-blue {
     .login-wrapper {
       background: #e9e9e9;
-      
+
     }
   }
 </style>

@@ -90,13 +90,22 @@
         <div class="box-body">
           <form action="#" method="post">
             <div class="form-group">
-              <input type="email" class="form-control" name="emailto" placeholder="Email to:">
+              <input type="email" class="form-control" name="emailto" placeholder="请填写商品条码">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" placeholder="Subject">
+              <input type="text" class="form-control" name="subject" placeholder="请填写商品名称">
             </div>
             <div>
-              <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+              <textarea class="textarea" placeholder="请填写商品介绍" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" placeholder="请填写商品单位">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" placeholder="请填写商品单价">
+            </div>
+            <div class="form-group">
+              <input type="file" name="subject">
             </div>
           </form>
         </div>

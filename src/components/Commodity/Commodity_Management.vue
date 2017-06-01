@@ -95,7 +95,7 @@
                     <td>X</td>
                     <td>X</td>
                     <td>
-                      <router-link to="/commodity_management/edit" @click="isManage()">编辑</router-link>
+                      <router-link to="/commodity_management/edit">编辑</router-link>
                     </td>
                   </tr>
                 </tbody>
