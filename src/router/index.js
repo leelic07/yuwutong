@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import CommodityManagement from '@/components/Content/Content'
 import CommodityEdit from '@/components/CommodityEdit/Commodity_Edit'
+import Login from '@/components/login/login'
 
 Vue.use(Router)
 
@@ -25,8 +26,12 @@ export default new Router({
       ]
     },
     {
+      path:'/login',
+      component:Login
+    },
+    {
       path:'*',
-      redirect:'/commodity_management'
+      redirect:'/login'
     }
   ]
 })
