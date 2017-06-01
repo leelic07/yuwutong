@@ -1,14 +1,16 @@
 <template>
-  <div id="Content" class="content-wrapper">
+  <div id="Commodity_Edit">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header col-xs-24">
       <!--<h1>-->
       <!--Page Header-->
       <!--<small>Optional description</small>-->
       <!--</h1>-->
-      <ol class="breadcrumb">
+      <ol class="bread_crumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
+        <li class="right_angle">&gt;</li>
         <li class="active">商品管理</li>
+        <li class="right_angle">&gt;</li>
         <li class="active">商品信息编辑</li>
       </ol>
     </section>
@@ -70,8 +72,41 @@
       <!--</div>-->
       <!--</div>-->
       <!--</div>-->
+      <!-- quick email widget -->
+      <div class="box box-info">
+        <div class="box-header">
+          <!--<i class="fa fa-envelope"></i>-->
+
+          <!--<h3 class="box-title">Quick Email</h3>-->
+
+          <h3 class="box-title"></h3>
+          <!-- tools box -->
+          <div class="pull-right box-tools">
+            <!--<button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">-->
+              <!--<i class="fa fa-times"></i></button>-->
+          </div>
+          <!-- /. tools -->
+        </div>
+        <div class="box-body">
+          <form action="#" method="post">
+            <div class="form-group">
+              <input type="email" class="form-control" name="emailto" placeholder="Email to:">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" placeholder="Subject">
+            </div>
+            <div>
+              <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="box-footer clearfix">
+          <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
+            <i class="fa fa-arrow-circle-right"></i></button>
+        </div>
+      </div>
     </section>
-    <!-- /.content -->
+     <!--/.content-->
   </div>
   <!-- /.content-wrapper -->
 </template>
@@ -85,14 +120,22 @@
 </script>
 
 <style type="text/less" lang="less">
-  #Content {
-    .breadcrumb {
-      margin-right: 55%;
-      font-size: 16px;
-      > li {
-        &:first-child {
-          a {
-            color: #3C8DBC;
+  #Commodity_Edit {
+    .content-header {
+      .bread_crumb {
+        /*margin-right: 55%;*/
+        font-size: 16px;
+        margin-top:10px;
+        list-style: none;
+        .right_angle {
+          padding:0 10px 0 10px;
+        }
+        > li {
+          float:left;
+          &:first-child {
+            a {
+              color: #3C8DBC;
+            }
           }
         }
       }

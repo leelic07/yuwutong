@@ -2,13 +2,16 @@
   <!-- Content Wrapper. Contains page content -->
   <div id="Content" class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header" v-if="isManage">
+    <section class="content-header col-xs-24" v-if="isManage">
       <!--<h1>-->
       <!--Page Header-->
       <!--<small>Optional description</small>-->
       <!--</h1>-->
-      <ol class="breadcrumb pull-left">
-        <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
+      <ol class="bread_crumb">
+        <li>
+          <a href="#"><i class="fa fa-dashboard"></i>首页</a>
+        </li>
+        <li class="right_angle">&gt;</li>
         <li class="active">商品管理</li>
       </ol>
     </section>
@@ -169,10 +172,6 @@
         }).catch(err => {
           console.log(err);
         });
-      },
-
-      isManage() {
-        this.commodityTableShow = !this.commodityTableShow;
       }
     },
     mounted() {
@@ -207,13 +206,22 @@
 
 <style type="text/less" lang="less" scoped>
   #Content {
-    .breadcrumb {
-      /*margin-right: 85%;*/
-      font-size: 16px;
-      > li {
-        &:first-child {
-          a {
-            color: #3C8DBC;
+    .content-header {
+      /*margin-left:10%;*/
+      .bread_crumb {
+        /*margin-right: 85%;*/
+        margin-top:10px;
+        list-style: none;
+        font-size: 16px;
+        .right_angle{
+          padding:0 10px 0 10px;
+        }
+        > li {
+          float:left;
+          &:first-child {
+            a {
+              color: #3C8DBC;
+            }
           }
         }
       }
