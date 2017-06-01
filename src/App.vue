@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :class="{'login-wrapper':!isNotLogin}">
     <!--<NavBar></NavBar>-->
     <!--<ToTal></ToTal>-->
-    <Header></Header>
-    <Aside></Aside>
+    <Header v-if = "isNotLogin"></Header>
+    <Aside v-if = "isNotLogin"></Aside>
     <!--<Content></Content>-->
     <router-view></router-view>
-    <Footer></Footer>
-    <SlideBar></SlideBar>
-    <ControlSlideBar></ControlSlideBar>
+    <Footer v-if = "isNotLogin"></Footer>
+    <SlideBar v-if = "isNotLogin"></SlideBar>
+    <ControlSlideBar v-if = "isNotLogin"></ControlSlideBar>
   </div>
 </template>
 
@@ -26,8 +26,31 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
     name: 'app',
     data() {
         return {
-
+          isNotLogin: true,
+          toUrl:""
         }
+    },
+    watch:{
+      $route(to){
+        this.toUrl = to.path;
+      },
+      toUrl(){
+        const loginUrl = "/login";
+        if (this.toUrl == loginUrl ) {
+            this.isNotLogin = false;
+        }else {
+            this.isNotLogin = true;
+        } 
+      }
+    },
+    methods:{
+      //初始为登陆页时隐藏侧边和顶边栏
+      hideBar() {
+        const loginUrl = "/login";
+        if (this.$route.path == loginUrl ) {
+            this.isNotLogin = false;
+        }
+      }
     },
     components:{
 //      NavBar
@@ -38,8 +61,18 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
       Footer,
       SlideBar,
       ControlSlideBar
+    },
+    mounted(){
+      this.hideBar();
     }
   }
 </script>
 
-<style></style>
+<style type="text/less" lang="less" scoped>
+  .skin-blue {
+    .login-wrapper {
+      background: #e9e9e9;
+      
+    }
+  }
+</style>
