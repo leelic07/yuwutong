@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+// import Hello from '@/components/Hello'
 import CommodityManagement from '@/components/Commodity/Commodity_Management'
 import CommodityEdit from '@/components/Commodity/Commodity_Edit'
 import Login from '@/components/login/login'
