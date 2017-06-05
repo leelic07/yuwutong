@@ -6,6 +6,7 @@ import CommodityEdit from '@/components/Commodity/Commodity_Edit'
 import Login from '@/components/login/login'
 import FamilyOrder from '@/components/Commodity/family_Order'
 import FamilyOrderDetail from '@/components/Commodity/family_Order_Detail'
+import MessageManagement from '@/components/Message/message_management'
 
 Vue.use(Router)
 
@@ -36,6 +37,10 @@ export default new Router({
           component:FamilyOrderDetail
         }
       ]
+    },
+    {
+      path:'/message_management',
+      component:MessageManagement
     },
     {
       path:'/login',
