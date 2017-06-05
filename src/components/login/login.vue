@@ -45,7 +45,7 @@
 </script>
 <style type="text/less" lang="less" scoped>
    .login-content-box {
-       margin-top: 200px;
+       margin-top: 160px;
        background-color: #4f98c2;
 
        .login-box {
