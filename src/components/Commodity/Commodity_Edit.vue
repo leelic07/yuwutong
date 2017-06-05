@@ -241,7 +241,8 @@
                 <div class="box-footer">
                   <button name="button" type="submit" class="btn btn-info pull-right save btn-add">更新</button>
                 </div>
-              </div></form>
+              </div>
+            </form>
           </div>
         </div>
       </div>
