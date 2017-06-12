@@ -1,136 +1,106 @@
 <template>
   <!-- Content Wrapper. Contains page content -->
   <div id="Content" class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!--<section class="content-header col-xs-24" v-if="isManage">-->
-    <!--&lt;!&ndash;<h1>&ndash;&gt;-->
-    <!--&lt;!&ndash;Page Header&ndash;&gt;-->
-    <!--&lt;!&ndash;<small>Optional description</small>&ndash;&gt;-->
-    <!--&lt;!&ndash;</h1>&ndash;&gt;-->
-    <!--<ol class="bread_crumb">-->
-    <!--<li>-->
-    <!--<a href="#"><i class="fa fa-dashboard"></i>首页</a>-->
-    <!--</li>-->
-    <!--<li class="right_angle">&gt;</li>-->
-    <!--<li class="active">商品管理</li>-->
-    <!--</ol>-->
-    <!--</section>-->
-
     <section class="content-header" v-if="isManage">
-
       <div class="row">
         <div class="col-xs-12">
           <ol class="breadcrumb" style="font-size:medium;">
-            <li><a href="/dashboard"><i class="fa fa-dashboard"></i> 首页 </a></li>
+            <li><router-link to = "/index"><i class="fa fa-dashboard"></i> 首页 </router-link></li>
             <li class="active">商品管理</li>
           </ol>
         </div>
       </div>
-
     </section>
 
     <!-- Main content -->
     <section class="content" v-if="isManage">
-
-      <!-- Your Page Content Here -->
-      <!--<table class="table table-striped">-->
-      <!--<thead>-->
-      <!--<tr>-->
-      <!--<th>商品图片</th>-->
-      <!--<th>商品名称</th>-->
-      <!--<th>商品简介</th>-->
-      <!--<th>商品条码</th>-->
-      <!--<th>单价</th>-->
-      <!--<th>单位</th>-->
-      <!--<th>生产厂家</th>-->
-      <!--<th>商品部类</th>-->
-      <!--<th>操作</th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--<tr>-->
-      <!--<td>1</td>-->
-      <!--<td>2</td>-->
-      <!--<td>3</td>-->
-      <!--<td>4</td>-->
-      <!--<td>5</td>-->
-      <!--<td>6</td>-->
-      <!--<td>7</td>-->
-      <!--<td>8</td>-->
-      <!--<td>9</td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-      <!--<td>1</td>-->
-      <!--<td>2</td>-->
-      <!--<td>3</td>-->
-      <!--<td>4</td>-->
-      <!--<td>5</td>-->
-      <!--<td>6</td>-->
-      <!--<td>7</td>-->
-      <!--<td>8</td>-->
-      <!--<td>9</td>-->
-      <!--</tr>-->
-      <!--</tbody>-->
-      <!--</table>-->
-
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"></h3>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <!--<table id="example1" class="table table-bordered table-striped table-hover">-->
-              <!--<thead>-->
-              <!--<tr>-->
-              <!--<th>商品图片</th>-->
-              <!--<th>商品名称</th>-->
-              <!--<th>商品简介</th>-->
-              <!--<th>商品条码</th>-->
-              <!--<th>单价</th>-->
-              <!--<th>单位</th>-->
-              <!--<th>生产厂家</th>-->
-              <!--<th>商品部类</th>-->
-              <!--<th>操作</th>-->
-              <!--</tr>-->
-              <!--</thead>-->
-              <!--<tbody>-->
-              <!--<tr>-->
-              <!--<td>Trident</td>-->
-              <!--<td>Internet-->
-              <!--Explorer 4.0-->
-              <!--</td>-->
-              <!--<td>Win 95+</td>-->
-              <!--<td> 4</td>-->
-              <!--<td>X</td>-->
-              <!--<td>X</td>-->
-              <!--<td>X</td>-->
-              <!--<td>X</td>-->
-              <!--<td>-->
-              <!--<router-link to="/commodity_management/edit">编辑</router-link>-->
-              <!--<a href="#">删除</a>-->
-              <!--</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-              <!--<tfoot>-->
-              <!--<tr>-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-              <!--</tr>-->
-              <!--</tfoot>-->
-              <!--</table>-->
-              <!--<table class="table table-striped table-hover table-bordered dataTable no-footer" id="tTrolleys"-->
-                     <!--role="grid" aria-describedby="tTrolleys_info" style="width: 100%;">-->
+             <div class = "col-sm-6 pull-right">
+               <Search v-on:search = "search"></Search>
+             </div>
+              <table id="shopTable" class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>商品图片</th>
+                  <th>商品名称</th>
+                  <th>商品简介</th>
+                  <th>商品条码</th>
+                  <th>单价</th>
+                  <th>单位</th>
+                  <th>生产厂家</th>
+                  <th>商品部类</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  <button class="btn btn-default" data-toggle="modal" data-target="#modal-introduction">简介详情</button>
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  <router-link to="/commodity_management/edit" class = "btn btn-primary">编辑</router-link>
+                  <button class = "btn btn-danger" data-toggle="modal" data-target="#modal-delete" >删除</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  XXXX
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  <button class="btn btn-default" data-toggle="modal" data-target="#modal-introduction">简介详情</button>
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  X
+                </td>
+                <td>
+                  <router-link to="/commodity_management/edit" class = "btn btn-primary">编辑</router-link>
+                  <button class = "btn btn-danger">删除</button>
+                </td>
+              </tr>
+              </tbody>
+              </table>
 
-
-
-              <table class="table table-striped table-hover table-bordered dataTable no-footer" id="example1"
+              <!--<table class="table table-striped table-hover table-bordered dataTable no-footer" id="example1"
                      role="grid" aria-describedby="tTrolleys_info" style="width: 100%;">
                 <thead>
                   <tr role="row" style="height: 0px;">
@@ -419,13 +389,57 @@
                     class="btn btn-edit btn-sm btn-primary" href="/items/4/edit">编辑</a></p></td>
                 </tr>
                 </tbody>
-              </table>
+              </table>-->
             </div>
             <!-- /.box-body -->
           </div>
         </div>
       </div>
     </section>
+
+    <div class="modal fade" id="modal-introduction">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">简介详情</h4>
+          </div>
+          <div class="modal-body">
+            <p>亲情卡</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">关闭</button>     
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal modal-danger fade" id="modal-delete">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">警示框</h4>
+            </div>
+            <div class="modal-body">
+              <p>删除数据操作不可恢复！</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-outline">确认</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
     <!--点击编辑路由入口-->
     <router-view></router-view>
@@ -436,6 +450,7 @@
 </template>
 
 <script>
+  import Search from '../tools/Search-Input.vue'
   import axios from 'axios'
   export default {
     data() {
@@ -443,34 +458,16 @@
         order: [],
         isManage: true,
         toUrl: '',//到达路由
-        fromUrl: ''//进入路由
+        fromUrl: '',//进入路由
+        searchVal: ''
       }
     },
     watch: {
       $route(to, from) {//监听路由变化
         this.toUrl = to.path;
-        this.fromUrl = from.path;
       },
       toUrl() {
-        const editUrl = '/commodity_management/edit';
-//        const index = editUrl.lastIndexOf('/');
-//        if (this.toUrl.substring(0, index) == "/crimsearch/edit") {//进入编辑页面
-//          this.isManage = false;//将管理页隐藏
-//        } else {
-//          this.isManage = true;
-//        }
-
-        if (this.toUrl == '/commodity_management/edit') {
-          this.isManage = false;
-        } else {
-          this.isManage = true;
-        }
-      },
-      fromUrl() {
-        const editUrl = '/commodity_management/edit';
-        if (this.fromUrl == '/commodity_management/edit') {
-
-        }
+        this.inEdit();
       }
     },
     methods: {
@@ -481,34 +478,49 @@
         }).catch(err => {
           console.log(err);
         });
+      },
+      //控制进入编辑页隐藏原先的列表页
+      inEdit(){
+        const editUrl = '/commodity_management/edit/3';
+        const index = editUrl.lastIndexOf('/');
+        if (this.toUrl.substring(0, index) == "/commodity_management/edit") {
+          this.isManage = false;
+        } else {
+          this.isManage = true;
+        }
+      },
+      search(data) {
+        this.searchVal = data;
+        $("#shopTable").DataTable().search(this.searchVal).draw();
       }
     },
-    mounted() {
-      $(function () {
-        $("#example1").DataTable();
-//        $('#tTrolleys').DataTable({
-//          "paging": true,
-//          "lengthChange": false,
-//          "searching": true,
-//          "ordering": true,
-//          "info": true,
-//          "autoWidth": false
-//        });
-      });
-      this.getAllCommodity();
+    components: {
+      Search
     },
-    updated() {
-      $(function () {
-        $("#example1").DataTable();
-//        $('#tTrolleys').DataTable({
-//          "paging": true,
-//          "lengthChange": false,
-//          "searching": true,
-//          "ordering": true,
-//          "info": true,
-//          "autoWidth": false
-//        });
+    mounted() {
+      this.toUrl = this.$route.path;
+      this.inEdit();
+      $("#shopTable").DataTable({
+        "ordering": false,
+        "lengthMenu":[1,10,20,30,40,50],
+        "pageLength": 10,
+        "pagingType": "full_numbers",
+        "dom": "<'col-sm-6'l><t><'col-sm-5'i><'col-sm-7'p>",
+        "language": {
+          "search":"",
+          "info":"共有_MAX_条数据，总共_PAGES_页",
+          "lengthMenu":"每页显示 _MENU_ 条",
+          "zeroRecords": "未搜索到相关数据",
+          "paginate":{
+            "first": "首页",
+            "previous": "前一页",
+            "next": "后一页",
+            "last": "尾页"
+          }
+        }  
       });
+
+     // this.getAllCommodity();
     }
   }
 </script>
@@ -516,24 +528,7 @@
 <style type="text/less" lang="less" scoped>
   #Content {
     .content-header {
-      /*margin-left:10%;*/
-      /*.bread_crumb {*/
-      /*margin-right: 85%;*/
-      /*margin-top:10px;*/
-      /*list-style: none;*/
-      /*font-size: 16px;*/
-      /*.right_angle{*/
-      /*padding:0 10px 0 10px;*/
-      /*}*/
-      /*> li {*/
-      /*float:left;*/
-      /*&:first-child {*/
-      /*a {*/
-      /*color: #3C8DBC;*/
-      /*}*/
-      /*}*/
-      /*}*/
-      /*}*/
+      
       .breadcrumb {
         margin-bottom: 0;
       }

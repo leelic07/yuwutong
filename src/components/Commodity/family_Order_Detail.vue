@@ -4,7 +4,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header clearfix">
         <ol class="breadcrumb">
-          <li><router-link to = ""><i class="fa fa-dashboard"></i> 首页</router-link></li>
+          <li><router-link to = "/index"><i class="fa fa-dashboard"></i> 首页</router-link></li>
           <li><router-link to = "/family_order">家属订单管理</router-link></li>
           <li class="active">订单详情</li>
         </ol>

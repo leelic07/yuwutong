@@ -2,25 +2,21 @@
   <div class="wrapper" :class="{'login-wrapper':!isNotLogin}">
     <!--<NavBar></NavBar>-->
     <!--<ToTal></ToTal>-->
-    <Header v-if = "isNotLogin"></Header>
-    <Aside v-if = "isNotLogin"></Aside>
+    <ywtHeader v-if = "isNotLogin"></ywtHeader>
+    <ywtAside v-if = "isNotLogin"></ywtAside>
     <!--<Content></Content>-->
     <router-view></router-view>
-    <Footer v-if = "isNotLogin"></Footer>
-    <SlideBar v-if = "isNotLogin"></SlideBar>
-    <ControlSlideBar v-if = "isNotLogin"></ControlSlideBar>
+    <ywtFooter v-if = "isNotLogin"></ywtFooter>
+    <SideBar v-if = "isNotLogin"></SideBar>
   </div>
 </template>
-
 <script>
 //import NavBar from './components/NavBar.vue'
 //import ToTal from './components/Total.vue'
-import Header from './components/Header/Header.vue'
-import Aside from './components/Aside/Aside.vue'
-import CommodityManagement from './components/Commodity/Commodity_Management.vue'
-import Footer from './components/Footer/Footer.vue'
-import SlideBar from './components/SlideBar/SlideBar.vue'
-import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
+import ywtHeader from './components/Header/Header.vue'
+import ywtAside from './components/Aside/Aside.vue'
+import ywtFooter from './components/Footer/Footer.vue'
+import SideBar from './components/SlideBar/SideBar.vue'
 
   export default {
     name: 'app',
@@ -33,6 +29,7 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
     watch:{
       $route(to){
         this.toUrl = to.path;
+        $("html,body,.wrapper").css("height","100%");
       },
       toUrl(){
         const loginUrl = "/login";
@@ -55,12 +52,10 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
     components:{
 //      NavBar
 //      ToTal
-      Header,
-      Aside,
-      CommodityManagement,
-      Footer,
-      SlideBar,
-      ControlSlideBar
+      ywtHeader,
+      ywtAside,
+      ywtFooter,
+      SideBar,
     },
     mounted(){
       this.hideBar();
@@ -68,11 +63,12 @@ import ControlSlideBar from './components/SlideBar/ControlSlideBar.vue'
   }
 </script>
 
-<style type="text/less" lang="less" scoped>
-  .skin-blue {
-    .login-wrapper {
-      background: #e9e9e9;
-
-    }
+<style>
+  .content-wrapper,.main{
+    height:calc(100% - 101px);
+    min-height: 0;
+  }
+  .login-wrapper {
+    background: #e9e9e9;
   }
 </style>

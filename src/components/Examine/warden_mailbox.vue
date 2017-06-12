@@ -6,7 +6,7 @@
       <section class="content-header clearfix">
         <ol class="breadcrumb">
           <li><router-link to = "/index"><i class="fa fa-dashboard"></i> 首页</router-link></li>
-          <li class="active">家属订单管理</li>
+          <li class="active">监狱长信箱</li>
         </ol>
       </section>
 
@@ -16,29 +16,30 @@
           <!-- left column -->
           <div class="col-xs-12">
             <!-- Form Element sizes -->
-            <div class="box box-info">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <button class = "btn btn-primary pull-right"><i class="fa fa-refresh"></i> 刷新</button>
+                </div>
                 <div class="box-body">
-                    <table id="orderTable" class="table table-bordered table-striped">
+                    <table id="mailTable" class="table table-bordered table-striped">
                       <thead>
                       <tr>
-                        <th>订单号</th>
-                        <th>订单状态</th>
-                        <th>创建日期</th>
-                        <th>支付日期</th>
-                        <th>操作</th>
                         <th></th>
+                        <th>标题</th>
+                        <th>内容</th>
+                        <th>发件人</th>
+                        <th>发送日期</th>
                       </tr>
                       </thead>
                       <tbody>
                       <tr>
-                        <td>Trident</td>
+                        <td><i class = "fa fa-star mail-icon"></i></td>
+                        <td><router-link to = "/warden_mailbox/detail/1">Trident</router-link></td>
                         <td>Internet
                           Explorer 4.0
                         </td>
                         <td>Win 95+</td>
                         <td> 4</td>
-                        <td><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-change-status">配送完成</button></td>
-                        <td><button type="button" class="btn btn-block btn-default" @click = "toDetail">订单详情</button></td>
                       </tr>
                       </tbody>
                   </table>
@@ -52,29 +53,6 @@
       </section>
     </div>
     <!-- /.content-wrapper -->
-
-    <div class="modal fade" id="modal-change-status">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">更改配送状态</h4>
-          </div>
-          <div class="modal-body">
-            <p>是否确定已完成此订单的配送任务？</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-block">确定完成</button>
-            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">关闭</button>     
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
     
     <!--点击订单详情入口-->
     <router-view></router-view>
@@ -99,22 +77,19 @@
     },
     methods:{
       inDetail() {
-         const detailUrl = '/family_order/detail/1';
+         const detailUrl = '/warden_mailbox/detail/1';
          const index = detailUrl.lastIndexOf('/');
-         if (this.toUrl.substring(0, index) == "/family_order/detail"){
+         if (this.toUrl.substring(0, index) == "/warden_mailbox/detail"){
             this.isNotDetail = false;
          }else {
             this.isNotDetail = true;
          }
-      },
-      toDetail() {
-        this.$router.push("family_order/detail/1")
       }
     },
     mounted() {
       this.toUrl = this.$route.path;
       this.inDetail();
-      $("#orderTable").DataTable({
+      $("#mailTable").DataTable({
           "info": false,
           "searching": false,
           "lengthChange": false,
@@ -134,6 +109,11 @@
  }
 </script>
 <style type="text/less" lang="less">
+  .main {
+    .content-wrapper {
+      height: 100%;
+    }
+  }
   .ywt-content-wrapper {
     .content-header {
       background: #f5f5f5;
@@ -153,19 +133,20 @@
       }
     }
     .box {
-      #orderTable {
+      #mailTable {
         &.table-striped{
           >tbody{
-            tr:nth-of-type(odd){
-              background: #c4e3f3;
+            .mail-icon {
+              color: #f39c12;
             }
           }
         }
       }
-      .box-footer {
-        .dataTables_paginate {
-          text-align: center;
-        }
+      .box-body {
+        padding: 0;
+      }
+      .dataTables_paginate {
+        text-align: center;
       }
     }  
   }

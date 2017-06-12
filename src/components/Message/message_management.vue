@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-xs-12">
           <ol class="breadcrumb" style="font-size:medium;">
-            <li><a href="/dashboard"><i class="fa fa-dashboard"></i> 首页 </a></li>
+            <li><router-link to = "/index"><i class="fa fa-dashboard"></i> 首页</router-link></li>
             <li class="active">监狱基本信息管理</li>
           </ol>
         </div>
