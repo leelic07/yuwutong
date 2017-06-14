@@ -66,7 +66,30 @@
             <p>是否确定已完成此订单的配送任务？</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-block">确定完成</button>
+            <button type="button" class="btn btn-primary btn-block">确定</button>
+            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">关闭</button>     
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="modal-change-status">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">确认删除操作</h4>
+          </div>
+          <div class="modal-body">
+            <p>是否确定删除该商品？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-block">确定</button>
             <button type="button" class="btn btn-default btn-block" data-dismiss="modal">关闭</button>     
           </div>
         </div>

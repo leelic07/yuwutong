@@ -76,7 +76,7 @@
     </section>
   </aside>
 
-  <aside class="main-sidebar">
+  <!--<aside class="main-sidebar">
     <section class="sidebar" style="height: auto;">
       <div class="user-panel">
         <div class="pull-left image">
@@ -128,7 +128,7 @@
         </li>
       </ul>
     </section>
-  </aside>
+  </aside>-->
 
   </div>
 

@@ -219,6 +219,7 @@
       .family-photo {
         height: 145px;
         width: 95%;
+        margin-left: -15px;
       }
     }
   }

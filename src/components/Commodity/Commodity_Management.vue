@@ -431,8 +431,8 @@
               <p>删除数据操作不可恢复！</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-outline">确认</button>
+              <button type="button" class="btn btn-outline pull-left">确认</button>
+              <button type="button" class="btn btn-outline" data-dismiss="modal">取消</button>
             </div>
           </div>
           <!-- /.modal-content -->

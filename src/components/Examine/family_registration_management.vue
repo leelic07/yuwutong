@@ -59,7 +59,7 @@
                   X
                 </td>
                 <td>
-                  <button class="btn btn-primary" :class = "{'hidden':false}">授权</button>
+                  <button class="btn btn-primary" :class = "{'hidden':false}" data-toggle="modal" data-target="#modal-authorize">授权</button>
                 </td>
               </tr>
               </tbody>
@@ -70,6 +70,37 @@
         </div>
       </div>
     </section>
+
+    <div class="modal fade" id="modal-authorize">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-light-blue color-palette">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title"><i class="fa-edit fa"></i> 授权</h4>
+          </div>
+          <div class="modal-body clearfix">
+            <div class = "applicant-info-box col-xs-12">
+              <p class = "col-xs-12">请核对申请人照片：</p>
+              <ul class = "list-unstyled col-xs-12">
+                <li class = "pull-left" v-for = "(img,index) in applierImgs" :class = "{'col-xs-4':isSmallImg,'col-xs-12':!isSmallImg,'hidden':isHidden[index]}" @click = "changeSize(index)">
+                  <img src="@/../static/dist/img/avatar5.png" class = "applicant-photo">
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group col-xs-12">
+              <button class="btn btn-primary btn-block">同意</button>
+              <button class="btn btn-danger btn-block">不同意</button>
+              <button class="btn btn-default btn-block" data-dismiss="modal">关闭</button>
+            </div>  
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
     <!-- /.content -->
   </div>
@@ -85,7 +116,10 @@
       return {
         families: [{"name":"liner"},{"name":"dalin"}],
         isManage: true,
-        searchVal: ''
+        searchVal: '',
+        isSmallImg: true,
+        applierImgs: [{},{},{}],
+        isHidden:[],
       }
     },
     methods: {
@@ -100,6 +134,17 @@
       search(data) {
         this.searchVal = data;
         $("#shopTable").DataTable().search(data).draw();
+      },
+      changeSize(i) {
+        this.isSmallImg = !this.isSmallImg;
+        for (let j = 0;j < this.applierImgs.length;j ++)　{
+          if (this.isSmallImg == false) {
+            this.isHidden[j] = true;
+          }else {
+             this.isHidden[j] = false;
+          }
+        }
+        this.isHidden[i] = false;
       }
     },
     components: {
@@ -154,6 +199,23 @@
         width: 100px;
         margin-right: 10px;
       }
+    }
+
+    .modal-content {
+      border-radius: 8px;
+
+      .modal-header {
+        border-radius: 8px 8px 0 0;
+      }
+      .applicant-info-box {
+         margin: 10px 0 50px;
+
+        .applicant-photo {
+          width: 90%;
+        }
+      }
+      
+
     }
   }
 </style>

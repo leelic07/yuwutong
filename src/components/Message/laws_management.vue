@@ -32,7 +32,7 @@
             
         </div>
         <div class="col-xs-8">
-            <div class="box box-primary">
+            <div class="box box-primary laws-box">
                 <div class="box-header with-border">
                     <h3 class="box-title">法律内容</h3>
                 </div>
@@ -40,26 +40,7 @@
                 <div class="box-body laws-content-box">
                     <!-- Custom Tabs (Pulled to the right) -->
                     <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs pull-right">
-                            <li class="active"><a href="#tab_1-1" data-toggle="tab">狱务公开</a></li>
-                            <li><a href="#tab_2-2" data-toggle="tab">工作动态</a></li>
-                            <li><a href="#tab_3-2" data-toggle="tab">投诉建议公示</a></li>
-                            <li></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_1-1">
-                                
-                            </div> 
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_2-2">
-                                
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_3-2">
-                                
-                            </div>
-                        <!-- /.tab-pane -->
-                        </div>
+                        
                         <!-- /.tab-content -->
                     </div>
                 </div>
@@ -76,17 +57,21 @@
   </div>
 </template>
 <style type="text/less" lang="less" scoped>
-    .content {
+    #Content {
         .law-list {
             margin-top: 20px;
             .list-icon {
                 margin-right: 10px;
             }
         }
-        .laws-content-box {
-            overflow: hidden;
-            height: 650px;
+        .laws-box {
+            margin-top:0;
+            .laws-content-box {
+                overflow-y: scroll;
+                height: 650px;
+            }
         }
+        
     }
 </style>
 <script>

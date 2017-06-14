@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :class="{'login-wrapper':!isNotLogin}">
+  <div :class="{'login-wrapper':!isNotLogin,'wrapper':isNotLogin}">
     <!--<NavBar></NavBar>-->
     <!--<ToTal></ToTal>-->
     <ywtHeader v-if = "isNotLogin"></ywtHeader>
@@ -67,8 +67,10 @@ import SideBar from './components/SlideBar/SideBar.vue'
   .content-wrapper,.main{
     height:calc(100% - 101px);
     min-height: 0;
+    overflow: auto;
   }
   .login-wrapper {
     background: #e9e9e9;
+    height: 100%;
   }
 </style>

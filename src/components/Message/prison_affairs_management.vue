@@ -15,10 +15,10 @@
     <!-- Main content -->
     <section class="content" v-if="isManage">
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-12">
             <!-- Custom Tabs (Pulled to the right) -->
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs pull-right">
+                <ul class="nav nav-tabs pull-left">
                     <li class="active"><a href="#tab_1-1" data-toggle="tab">狱务公开</a></li>
                     <li><a href="#tab_2-2" data-toggle="tab">工作动态</a></li>
                     <li><a href="#tab_3-2" data-toggle="tab">投诉建议公示</a></li>
@@ -29,7 +29,7 @@
                         <div class = "col-sm-6 pull-right">
                             <Search v-on:search = "search"></Search>
                         </div>
-                        <table id="shopTable" class="table table-bordered table-striped table-hover">
+                        <table id="newsTable" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
                                 <th>新闻标题</th>
@@ -59,11 +59,69 @@
                     </div> 
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2-2">
-                        
+                        <div class = "col-sm-6 pull-right">
+                            <Search v-on:search = "search"></Search>
+                        </div>
+                        <table id="jobTable" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                <th>工作动态标题</th>
+                                <th>工作动态内容</th>
+                                <th>工作动态图片</th>
+                                <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                    <router-link to="/commodity_management/edit" class = "btn btn-primary">编辑</router-link>
+                                    <button class = "btn btn-danger" data-toggle="modal" data-target="#modal-delete" >删除</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3-2">
-                        
+                        <div class = "col-sm-6 pull-right">
+                            <Search v-on:search = "search"></Search>
+                        </div>
+                        <table id="publicityTable" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                <th>公示标题</th>
+                                <th>公示内容</th>
+                                <th>公示图片</th>
+                                <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                X
+                                </td>
+                                <td>
+                                    <router-link to="/commodity_management/edit" class = "btn btn-primary">编辑</router-link>
+                                    <button class = "btn btn-danger" data-toggle="modal" data-target="#modal-delete" >删除</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 <!-- /.tab-pane -->
                 </div>
