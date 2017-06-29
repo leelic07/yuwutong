@@ -5,10 +5,16 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import Filters from '../static/dist/js/filter.js'
+//富文本编辑器 vue-kindeditor
+import VueKindEditor from 'vue-kindeditor'
+import 'kindeditor/kindeditor-all-min.js'
+//import 'kindeditor/themes/default/default.css'
 
+//关闭生产模式下给出的提示
 Vue.config.productionTip = false
 
-console.log(Filters);
+//注册 vue-kindeditor plugin
+Vue.use(VueKindEditor)
 
 //声明过滤器
 Object.keys(Filters).forEach((key)=>Vue.filter(key,Filters[key]));

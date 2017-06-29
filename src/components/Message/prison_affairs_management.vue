@@ -18,13 +18,13 @@
         <div class="col-xs-12">
             <!-- Custom Tabs (Pulled to the right) -->
             <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs pull-left">
+                <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1-1" data-toggle="tab">狱务公开</a></li>
                     <li><a href="#tab_2-2" data-toggle="tab">工作动态</a></li>
                     <li><a href="#tab_3-2" data-toggle="tab">投诉建议公示</a></li>
-                    <li></li>
+                    <router-link to = "/" class="btn btn-primary pull-right">添加狱务公开信息</router-link>
                 </ul>
-                <div class="tab-content">
+                <div class="tab-content clearfix">
                     <div class="tab-pane active" id="tab_1-1">
                         <div class = "col-sm-6 pull-right">
                             <Search v-on:search = "search"></Search>
@@ -132,12 +132,21 @@
     </section>
   </div>
 </template>
-<style type="text/less" lang="less" scoped>
-    .content {
-        
+<style type="text/less" lang="less">
+    #Content {
+        .nav-tabs-custom {
+            select {
+                border-radius: 4px;
+                width: 100px;
+                margin-right: 10px;
+                margin-left: -14px;
+            }
+        }
     }
 </style>
 <script>
+import Search from '../tools/Search-Input.vue'
+import axios from 'axios'
 export default {
     data() {
       return {
@@ -148,6 +157,30 @@ export default {
         send() {
             
         }
+    },
+    components: {
+      Search
+    },
+    mounted() {
+        $("#newsTable,#jobTable,#publicityTable").DataTable({
+            "ordering": false,
+            "lengthMenu":[1,10,20,30,40,50],
+            "pageLength": 10,
+            "pagingType": "full_numbers",
+            "dom": "<'col-sm-6'l><t><'col-sm-5'i><'col-sm-7'p>",
+            "language": {
+                "search":"",
+                "info":"共有_MAX_条数据，总共_PAGES_页",
+                "lengthMenu":" _MENU_ 条数据",
+                "zeroRecords": "未搜索到相关数据",
+                "paginate":{
+                    "first": "首页",
+                    "previous": "前一页",
+                    "next": "后一页",
+                    "last": "尾页"
+                }
+            }
+      })
     }
   }
 </script>

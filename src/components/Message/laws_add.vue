@@ -32,7 +32,10 @@
 
                         <div class="input-group laws-intro-box">
                             <span class="input-group-addon">法律简介</span>
-                            <textarea name="" id="" class="col-xs-12" rows="12"></textarea>
+                            <editor id="editor_id" height="400px" width="700px" :content="editorText" 
+                            pluginsPath="/node_modules/kindeditor/plugins" :loadStyleMode="false"  @on-content-change="onContentChange">
+                            </editor>
+                            <!--<textarea name="" id="" class="col-xs-12" rows="12"></textarea>-->
                         </div>
 
                         <button class = "btn btn-default btn-file add-pic-btn">
@@ -71,10 +74,15 @@
 export default {
     data() {
       return {
-        isManage : true
+        isManage : true,
+        editorText: 'dd'
       }
     },
     methods:{
+        onContentChange(val) {
+            console.log(val);
+            this.editorText = val
+        },
         send() {
             
         }
